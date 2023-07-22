@@ -208,11 +208,12 @@
 
 <div class="col">
 
-<form>
+<form method="post">
+  {% csrf_token %}
   <div style="width: 500px; margin: 20px, border: 1pb">
   <div class="mb-3">
     <label class="form-label">Имя</label>
-  <input name="nmae" type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
+  <input name="name" type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
   </div>
     <p>Почта</p>
   <div class="input-group mb-3">
