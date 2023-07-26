@@ -25,4 +25,4 @@ class Command(BaseCommand):
             {'name': "Товары для дома", 'description': "Тут просто будет всё остальное, что не техника"}
             ]
         for c in category_data:
-            Product.objects.create(c['fields'])
+            Category.objects.create(c)
