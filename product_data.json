@@ -1,42 +1,66 @@
 [
   {
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
       "name": "Планшет",
       "description": "Какой-то планшет",
       "category": 1,
       "cost": 10000
+    }
   },
   {
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
       "name": "Телефон",
       "description": "Какой-то планшет",
       "category": 1,
       "cost": 12000
+    }
   },
   {
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
       "name": "Кабель",
       "description": "Очень дорогой провод для зарядки",
       "category": 2,
       "cost": 2000,
       "add_date": "2023-08-02T20:25:41Z"
+    }
   },
   {
+    "model": "catalog.product",
+    "pk": 4,
+    "fields": {
       "name": "Блок питания",
       "description": "Блок зарядки ноутбука или телефона",
       "category": 2,
       "cost": 5000,
       "add_date": "2022-07-02T20:25:41Z"
+    }
   },
   {
+    "model": "catalog.product",
+    "pk": 5,
+    "fields": {
       "name": "Влажные салфетки",
       "description": "Всегда пригодятся",
       "category": 3,
       "cost": 600,
       "add_date": "2023-07-03T20:25:41Z"
+    }
   },
   {
+    "model": "catalog.product",
+    "pk": 6,
+    "fields": {
       "name": "Швабра",
       "description": "Тоже пусть будет, к тому же с ведром в комплекте",
       "category": 3,
       "cost": 4000,
       "add_date": "2023-07-03T20:26:41Z"
+    }
   }
 ]

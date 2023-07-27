@@ -4,6 +4,18 @@ from django.db import models
 NULLABLE = {"null": True, "blank": True}
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=150, verbose_name='Наименование')
+    description = models.TextField(verbose_name='Описание', **NULLABLE)
+
+    def __str__(self):
+        return f'{self.name}'
+
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
+
+
 class Product(models.Model):
     name = models.CharField(max_length=150, verbose_name='Наименование')
     description = models.TextField(verbose_name='Описание', **NULLABLE)
@@ -19,15 +31,3 @@ class Product(models.Model):
     class Meta:
         verbose_name = 'Продукт'
         verbose_name_plural = 'Продукты'
-
-
-class Category(models.Model):
-    name = models.CharField(max_length=150, verbose_name='Наименование')
-    description = models.TextField(verbose_name='Описание', **NULLABLE)
-
-    def __str__(self):
-        return f'{self.name} {self.description}'
-
-    class Meta:
-        verbose_name = 'Категория'
-        verbose_name_plural = 'Категории'
