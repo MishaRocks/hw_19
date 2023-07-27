@@ -30,7 +30,7 @@ def contacts(request):
 def product(request, pk):
     show_product = Product.objects.get(pk=pk)
     context = {
-        'object_list': 'Product.objects.get(pk)',
-        'title': 'show_product.name',
+        'object_list': Product.objects.get(pk=pk),
+        'title': show_product.name,
     }
     return render(request, 'catalog/product.html', context)
