@@ -1,5 +1,5 @@
 {% extends 'catalog/base.html' %}
-
+{%load my_tags %}
 {% block content %}
 
     <div class="row row-cols-1 mb-3 text-center">
@@ -13,6 +13,7 @@
             <p class="list-unstyled mt-3 mb-4">
               {{ object_list.description }}
             </p>
+            <img src="{% mediapath object_list.preview %}" class="img-thumbnail" alt="...">
           </div>
         </div>
       </div>
