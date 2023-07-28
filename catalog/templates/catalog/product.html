@@ -9,7 +9,7 @@
             <h4 class="my-0 fw-normal">{{ object_list.name }}</h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title">{{ object_list.cost }}</h1>
+            <h1 class="card-title pricing-card-title">{{ object_list.cost | rub }}</h1>
             <p class="list-unstyled mt-3 mb-4">
               {{ object_list.description }}
             </p>
