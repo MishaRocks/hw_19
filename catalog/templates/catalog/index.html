@@ -10,7 +10,7 @@
             <h4 class="my-0 fw-normal">{{ p.name }}</h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title">{{ p.cost }}</h1>
+            <h1 class="card-title pricing-card-title">{{ p.cost | rub }}</h1>
               <img src="{{ p.preview | mymedia }}" class="img-thumbnail" alt="...">
             <p class="list-unstyled mt-3 mb-4">
               {{ p.description | truncatechars:100 }}
