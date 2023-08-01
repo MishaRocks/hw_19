@@ -1,0 +1,14 @@
+{% extends 'catalog/base.html' %}
+{%load my_tags %}
+{% block content %}
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+      <div class="col">
+          <h2>{{ object.title }}</h2> <p>{{ object.slug }}</p>
+          <p>{{ object.content }}</p>
+          <p><img src="{{ object.preview | mymedia }}" class="img-thumbnail" alt="..."></p>
+          <p>Просмотры: {{ object.showed }}</p>
+          <p><a href="{% url 'catalog:update_post' object.pk %}">Изменить</a>
+          <a href="{% url 'catalog:delete_post' object.pk %}">Удалить</a> </p>
+      </div>
+    </div>
+{% endblock %}
