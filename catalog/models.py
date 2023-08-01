@@ -35,7 +35,7 @@ class Product(models.Model):
 
 class Blogpost(models.Model):
     title = models.CharField(max_length=150, verbose_name='Заголовок')
-    slug = models.CharField(max_length=150, verbose_name='Адрес')
+    slug = models.CharField(max_length=150, verbose_name='Адрес', **NULLABLE)
     content = models.TextField(verbose_name='Пост')
     preview = models.ImageField(upload_to='blog/', verbose_name='Превью', **NULLABLE)
     add_date = models.DateTimeField(**NULLABLE, verbose_name="Дата добавления")

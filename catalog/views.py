@@ -52,9 +52,9 @@ class BlogpostCreateView(CreateView):
 
     def form_valid(self, form):
         if form.is_valid():
-            new_mat = form.save()
-            new_mat = slugify(new_mat.title)
-            new_mat.save()
+            new_post = form.save()
+            new_post.slug = slugify(new_post.title)
+            new_post.save()
         return super().form_valid(form)
 
 
@@ -88,6 +88,13 @@ class BlogpostDetailView(DetailView):
 class BlogpostUpdateView(UpdateView):
     model = Blogpost
     fields = ('title', 'content', 'preview', 'is_published')
+
+    def form_valid(self, form):
+        if form.is_valid():
+            new_post = form.save()
+            new_post.slug = slugify(new_post.title)
+            new_post.save()
+        return super().form_valid(form)
 
     def get_success_url(self):
         return reverse('catalog:post', args=[self.object.pk])
