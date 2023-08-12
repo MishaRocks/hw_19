@@ -2,9 +2,18 @@
 {%load my_tags %}
 {% block content %}
 
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <a href="{% url 'catalog:new_product' %}" class="btn">
+          Новый продукт
+          </a>
+        </div>
+      </div>
+
     <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
      {% for p in object_list %}
-      <div class="col">
+
+        <div class="col">
         <div class="card mb-4 rounded-3 shadow-sm">
           <div class="card-header py-3">
             <h4 class="my-0 fw-normal">{{ p.name }}</h4>

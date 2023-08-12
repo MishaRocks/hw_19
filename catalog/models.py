@@ -38,7 +38,7 @@ class Blogpost(models.Model):
     slug = models.CharField(max_length=150, verbose_name='Адрес', **NULLABLE)
     content = models.TextField(verbose_name='Пост')
     preview = models.ImageField(upload_to='blog/', verbose_name='Превью', **NULLABLE)
-    add_date = models.DateTimeField(**NULLABLE, verbose_name="Дата добавления")
+    add_date = models.DateTimeField(auto_now_add=True, verbose_name="Дата добавления", **NULLABLE)
     is_published = models.BooleanField(default=True, verbose_name="В список опубликованных")
     showed = models.IntegerField(default=0, verbose_name='Количество просмотров')
 
@@ -48,3 +48,17 @@ class Blogpost(models.Model):
     class Meta:
         verbose_name = 'Блоговая запись'
         verbose_name_plural = 'Блоговые записи'
+
+
+class Version(models.Model):
+    number = models.IntegerField(verbose_name='номер')
+    name = models.CharField(max_length=150, verbose_name='название версии')
+    sign = models.TextField(verbose_name='признак версии', **NULLABLE)
+    product = models.ForeignKey('Product', on_delete=models.CASCADE, **NULLABLE, verbose_name='продукт')
+
+    def __str__(self):
+        return f'{self.number} {self.name}'
+
+    class Meta:
+        verbose_name = 'Версия'
+        verbose_name_plural = 'Версии'
