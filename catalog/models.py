@@ -53,7 +53,7 @@ class Blogpost(models.Model):
 class Version(models.Model):
     number = models.IntegerField(verbose_name='номер')
     name = models.CharField(max_length=150, verbose_name='название версии')
-    sign = models.TextField(verbose_name='признак версии', **NULLABLE)
+    sign = models.BooleanField(verbose_name='признак текущей версии', default=True, **NULLABLE)
     product = models.ForeignKey('Product', on_delete=models.CASCADE, **NULLABLE, verbose_name='продукт')
 
     def __str__(self):

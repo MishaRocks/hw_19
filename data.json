@@ -1,0 +1,228 @@
+[
+{
+  "model": "catalog.category",
+  "pk": 1,
+  "fields": {
+    "name": "Техника",
+    "description": "Разная техника: компьютеры, телефоны, планшеты"
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 2,
+  "fields": {
+    "name": "Аксессуары",
+    "description": "Чехлы для телефонов, зарядные кабеля и устройства, блоки питания"
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 3,
+  "fields": {
+    "name": "Товары для дома",
+    "description": "Тут просто будет всё остальное, что не техника"
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 1,
+  "fields": {
+    "name": "Планшет",
+    "description": "Какой-то планшет",
+    "preview": "products/acer_aspire_switch_10_e_sw3_016_14uy_8.jpg",
+    "category": 1,
+    "cost": 10000,
+    "add_date": null,
+    "change_date": null
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 2,
+  "fields": {
+    "name": "Телефон",
+    "description": "Какой-то телефон. Большой, с хорошим экраном, и работает ещё на андроиде, а не на этом вашем яблоке бездуховном. В общем чудо, а не телефон. Купите его пожалуйста(",
+    "preview": "products/22314518-1661123610.jpg",
+    "category": 1,
+    "cost": 12000,
+    "add_date": null,
+    "change_date": null
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 3,
+  "fields": {
+    "name": "Кабель",
+    "description": "Очень дорогой провод для зарядки",
+    "preview": "products/kabel-pitaniya-setevoy-3kh0_75-3_0m-_-rs_186_vde_3m-__TszuYCP.jpeg",
+    "category": 2,
+    "cost": 2000,
+    "add_date": null,
+    "change_date": null
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 4,
+  "fields": {
+    "name": "Блок питания",
+    "description": "Блок зарядки ноутбука или телефона",
+    "preview": "products/100023598985b0.webp",
+    "category": 2,
+    "cost": 5000,
+    "add_date": null,
+    "change_date": null
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 5,
+  "fields": {
+    "name": "Влажные салфетки",
+    "description": "Всегда пригодятся",
+    "preview": "",
+    "category": 3,
+    "cost": 600,
+    "add_date": null,
+    "change_date": null
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 6,
+  "fields": {
+    "name": "Швабра",
+    "description": "Тоже пусть будет, к тому же с ведром в комплекте",
+    "preview": "products/orig.webp",
+    "category": 3,
+    "cost": 4000,
+    "add_date": null,
+    "change_date": null
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 14,
+  "fields": {
+    "name": "Умные часы",
+    "description": "Часы, умнее тебя в сто раз.",
+    "preview": "",
+    "category": 1,
+    "cost": 10000,
+    "add_date": null,
+    "change_date": null
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 15,
+  "fields": {
+    "name": "Умные часы",
+    "description": "Часы, умнее тебя в сто раз.",
+    "preview": "",
+    "category": 1,
+    "cost": 10000,
+    "add_date": null,
+    "change_date": null
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 16,
+  "fields": {
+    "name": "Пылесос",
+    "description": "Хороший пылесос",
+    "preview": "",
+    "category": 1,
+    "cost": 20000,
+    "add_date": null,
+    "change_date": null
+  }
+},
+{
+  "model": "catalog.blogpost",
+  "pk": 2,
+  "fields": {
+    "title": "Обратите внимание",
+    "slug": "",
+    "content": "В видео используется PyCharm версии Pro, поэтому работает автоподстановка шаблонных тегов в шаблонах.\r\n\r\nВерсия Community не поддерживает такую проверку синтаксиса для шаблонизаторов, но это не критично для работы. Просто внимательнее следите за корректностью написания конструкций в шаблонах.",
+    "preview": "blog/Снимок_экрана_2023-07-23_205111.png",
+    "add_date": null,
+    "is_published": true,
+    "showed": 26
+  }
+},
+{
+  "model": "catalog.blogpost",
+  "pk": 3,
+  "fields": {
+    "title": "Тут что-то будет",
+    "slug": "tut-chto-to-budet",
+    "content": "Здесь будет содержание, которое режется в общем списке. \r\nБудет несколько параметром.",
+    "preview": "",
+    "add_date": null,
+    "is_published": true,
+    "showed": 10
+  }
+},
+{
+  "model": "catalog.blogpost",
+  "pk": 4,
+  "fields": {
+    "title": "Xnj-nj",
+    "slug": "",
+    "content": "Путь такой будет заголовок",
+    "preview": "",
+    "add_date": null,
+    "is_published": false,
+    "showed": 3
+  }
+},
+{
+  "model": "catalog.blogpost",
+  "pk": 5,
+  "fields": {
+    "title": "Новый пост",
+    "slug": "novyij-post",
+    "content": "Тестируем слаг",
+    "preview": "",
+    "add_date": "2023-08-01T20:16:39Z",
+    "is_published": true,
+    "showed": 4
+  }
+},
+{
+  "model": "catalog.blogpost",
+  "pk": 6,
+  "fields": {
+    "title": "Какой-то пост",
+    "slug": "kakoj-to-post",
+    "content": "Здесь просто любая запись в блоге, тестируем дату.",
+    "preview": "",
+    "add_date": "2023-08-02T19:59:19.194Z",
+    "is_published": true,
+    "showed": 5
+  }
+},
+{
+  "model": "catalog.version",
+  "pk": 1,
+  "fields": {
+    "number": 1,
+    "name": "Yjdsq",
+    "sign": "",
+    "product": 14
+  }
+},
+{
+  "model": "catalog.version",
+  "pk": 2,
+  "fields": {
+    "number": 2,
+    "name": "Vers 2",
+    "sign": "",
+    "product": 15
+  }
+}
+]
