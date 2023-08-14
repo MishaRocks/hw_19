@@ -24,6 +24,11 @@
             <p class="list-unstyled mt-3 mb-4">
               {{ p.description | truncatechars:100 }}
             </p>
+            <p class="list-unstyled mt-3 mb-4">
+
+                        Активная версия: {{ actual_version }}
+
+            </p>
             <a href="{% url 'catalog:product' p.pk %}" type="button" class="w-100 btn btn-lg btn-primary">Подробнее</a>
           </div>
         </div>

@@ -16,10 +16,12 @@ Including another URLconf
 """
 from django.urls import path
 
-from catalog.apps import CatalogConfig
+from users.apps import UsersConfig
+from users.views import LoginView, LogoutView
 
-app_name = CatalogConfig.name
+app_name = UsersConfig.name
 
 urlpatterns = [
-    path('', namespace='index')
+    path('', LoginView.as_view(), name='login'),
+    path('logout/', LogoutView.as_view(), name='logout'),
 ]

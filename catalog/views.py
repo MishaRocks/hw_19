@@ -41,8 +41,8 @@ class ProductDetailView(DetailView):
         context_data = super().get_context_data(*args, **kwargs)
 
         show_product = Product.objects.get(pk=self.kwargs.get('pk'))
-        context_data['object_list'] = Product.objects.get(pk=self.kwargs.get('pk')),
-        # context_data['version'] = show_product.Version.get('name'),
+        context_data['object_list'] = show_product,
+        context_data['actual_version'] = Version.objects.filter(sign=True)
         context_data['title'] = f'В продаже: {show_product.name}'
 
         return context_data

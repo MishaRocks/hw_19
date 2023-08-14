@@ -14,7 +14,11 @@
               {{ object.description }}
             </p>
             <p class="list-unstyled mt-3 mb-4">
-              {{ object.version }}
+              {% for version in actual_version %}
+                {% if version.product == object %}
+                  Активная версия: {{ version.name }}
+                {% endif %}
+              {% endfor %}
             </p>
             <img src="{% mediapath object.preview %}" class="img-thumbnail" alt="...">
           </div>
