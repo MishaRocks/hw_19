@@ -20,6 +20,9 @@
                 {% endif %}
               {% endfor %}
             </p>
+            <p class="list-unstyled mt-3 mb-4">
+                Добавил: {{ object.user | default:'Неизвестно' }}
+            </p>
             <img src="{% mediapath object.preview %}" class="img-thumbnail" alt="...">
           </div>
           {% if user.is_authenticated %}
