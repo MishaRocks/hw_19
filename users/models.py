@@ -4,7 +4,6 @@ from django.db import models
 from catalog.models import NULLABLE
 
 
-# Create your models here.
 class User(AbstractUser):
     username = None
 
@@ -14,5 +13,12 @@ class User(AbstractUser):
 
     email = models.EmailField(verbose_name='почта', unique=True)
 
+    email_confirmation_token = models.CharField(max_length=255, **NULLABLE)
+    is_email_verified = models.BooleanField(default=False)
+
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
+
+    class Meta:
+        verbose_name = 'Пользователь'
+        verbose_name_plural = 'Пользователи'

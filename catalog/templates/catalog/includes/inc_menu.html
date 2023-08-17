@@ -22,7 +22,22 @@
       </li>
       <li>
         <a href="{% url 'catalog:contacts' %}" class="nav-link text-white">Контакты</a>
+         <hr>
       </li>
+
+        <li>
+        {% if user.is_authenticated %}
+           <a href="{% url 'users:profile' %}" class="nav-link text-white">Профиль</a>
+            <br>
+           <a href="{% url 'users:logout' %}" class="nav-link text-white"><b>Выйти</b></a>
+        {% else %}
+            <a href="{% url 'users:login' %}" class="nav-link text-white"><b>Войти</b></a>
+            <hr>
+            <a href="{% url 'users:register' %}" class="nav-link text-white"><b>Регистрация</b></a>
+            <hr>
+            <a href="{% url 'users:profile' %}" class="nav-link text-white"><b>Восстановить пароль</b></a>
+        {% endif %}
+        </li>
     </ul>
 
   </div>

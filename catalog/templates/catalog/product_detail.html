@@ -22,10 +22,12 @@
             </p>
             <img src="{% mediapath object.preview %}" class="img-thumbnail" alt="...">
           </div>
+          {% if user.is_authenticated %}
           <div class="card-footer py-3">
             <a href="{% url 'catalog:edit_product' object.pk %}">Редактировать</a> |
             <a href="{% url 'catalog:delete_product' object.pk %}">Удалить</a>
           </div>
+          {% endif %}
         </div>
       </div>
     </div>

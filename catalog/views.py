@@ -5,6 +5,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from catalog.models import Product, Blogpost, Version
 from catalog.forms import ProductForm, VersionForm
 from django.forms import inlineformset_factory
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class ProductListView(ListView):
     model = Product
@@ -48,7 +49,7 @@ class ProductDetailView(DetailView):
         return context_data
 
 
-class ProductCreateView(CreateView):
+class ProductCreateView(LoginRequiredMixin, CreateView):
     model = Product
     form_class = ProductForm
 
@@ -56,7 +57,7 @@ class ProductCreateView(CreateView):
         return reverse('catalog:product', args=[self.object.pk])
 
 
-class ProductUpdateView(UpdateView):
+class ProductUpdateView(LoginRequiredMixin, UpdateView):
     model = Product
     form_class = ProductForm
 
@@ -81,7 +82,7 @@ class ProductUpdateView(UpdateView):
             formset.save()
         return super().form_valid(form)
 
-class ProductDeleteView(DeleteView):
+class ProductDeleteView(LoginRequiredMixin, DeleteView):
     model = Product
     success_url = reverse_lazy('catalog:index')
 
