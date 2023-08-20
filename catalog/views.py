@@ -3,9 +3,11 @@ from django.urls import reverse_lazy, reverse
 from pytils.translit import slugify
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from catalog.models import Product, Blogpost, Version
-from catalog.forms import ProductForm, VersionForm
+from catalog.forms import ProductForm, VersionForm, ProductModeratorForm
 from django.forms import inlineformset_factory
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.http import Http404
+
 
 class ProductListView(ListView):
     model = Product
@@ -64,15 +66,30 @@ class ProductCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class ProductUpdateView(LoginRequiredMixin, UpdateView):
+class ProductUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     model = Product
     form_class = ProductForm
+
+    permission_required = ('catalog.change_product', 'catalog.view_product')
+
+    def get_object(self, queryset=None):
+        self.object = super().get_object(queryset)
+        if self.object.user != self.request.user and not self.request.user.is_staff:
+            raise Http404
+        return self.object
+
 
     def get_success_url(self):
         return reverse('catalog:product', args=[self.object.pk])
 
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
+        user = self.request.user
+
+        if user.is_staff and user.has_perm(self.permission_required):
+            context_data['form'] = ProductModeratorForm
+            return context_data
+
         versionformset = inlineformset_factory(Product, Version, form=VersionForm, extra=1)
         if self.request.method == 'POST':
             context_data['formset'] = versionformset(self.request.POST, instance=self.object)
@@ -88,6 +105,7 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
             formset.instance = self.object
             formset.save()
         return super().form_valid(form)
+
 
 class ProductDeleteView(LoginRequiredMixin, DeleteView):
     model = Product

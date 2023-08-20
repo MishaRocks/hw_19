@@ -33,6 +33,13 @@ class ProductForm(StyleFormMixin, forms.ModelForm):
         return cleaned_description
 
 
+class ProductModeratorForm(ProductForm):
+
+    class Meta:
+        model = Product
+        exclude = ('preview', 'cost', 'add_date')
+
+
 class VersionForm(StyleFormMixin, forms.ModelForm):
 
     class Meta:
