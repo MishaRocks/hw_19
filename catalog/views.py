@@ -70,7 +70,7 @@ class ProductUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView)
     model = Product
     form_class = ProductForm
 
-    permission_required = ('catalog.change_product', 'catalog.view_product')
+    permission_required = 'catalog.change_product', 'catalog.view_product'
 
     def get_object(self, queryset=None):
         self.object = super().get_object(queryset)

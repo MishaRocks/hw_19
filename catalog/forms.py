@@ -34,6 +34,8 @@ class ProductForm(StyleFormMixin, forms.ModelForm):
 
 
 class ProductModeratorForm(ProductForm):
+    def __init__(self):
+        ...
 
     class Meta:
         model = Product

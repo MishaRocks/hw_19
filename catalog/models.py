@@ -35,6 +35,11 @@ class Product(models.Model):
         verbose_name = 'Продукт'
         verbose_name_plural = 'Продукты'
 
+        permissions = [
+            ('change_description', 'Can change product'),
+            ('set_published_status', 'Can change publishing')
+        ]
+
 
 class Blogpost(models.Model):
     title = models.CharField(max_length=150, verbose_name='Заголовок')
