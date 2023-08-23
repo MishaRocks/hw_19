@@ -36,7 +36,6 @@ class Product(models.Model):
         verbose_name_plural = 'Продукты'
 
         permissions = [
-            ('change_description', 'Can change product'),
             ('set_published_status', 'Can change publishing')
         ]
 

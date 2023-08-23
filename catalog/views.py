@@ -2,11 +2,12 @@ from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from pytils.translit import slugify
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from catalog.models import Product, Blogpost, Version
+from catalog.models import Product, Blogpost, Version, Category
 from catalog.forms import ProductForm, VersionForm, ProductModeratorForm
 from django.forms import inlineformset_factory
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.http import Http404
+from catalog.services import get_some_cache
 
 
 class ProductListView(ListView):
@@ -170,3 +171,27 @@ class BlogpostUpdateView(UpdateView):
 class BlogpostDeleteView(DeleteView):
     model = Blogpost
     success_url = reverse_lazy('catalog:blog')
+
+
+# class CategoryListView(ListView):
+#     model = Category
+#     template_name = 'catalog/category_list.html'
+#     extra_context = {
+#         'title': 'Список категорий'
+#     }
+#     def get_context_data(self, *args, **kwargs):
+#         context_data = super().get_context_data(*args, **kwargs)
+#
+#         show_product = Category.objects.get(pk=self.kwargs.get('pk'))
+#         context_data['object_list'] = get_some_cache(Category),
+#         context_data['title'] = 'Список категорий'
+#
+#         return context_data
+
+
+def categories(request):
+    context = {
+        'object_list': get_some_cache(Category),
+        'title': 'Список категорий'
+    }
+    return render(request, 'catalog/categories.html', context)
