@@ -13,8 +13,24 @@
             <p class="list-unstyled mt-3 mb-4">
               {{ object.description }}
             </p>
+            <p class="list-unstyled mt-3 mb-4">
+              {% for version in actual_version %}
+                {% if version.product == object %}
+                  Активная версия: {{ version.name }}
+                {% endif %}
+              {% endfor %}
+            </p>
+            <p class="list-unstyled mt-3 mb-4">
+                Добавил: {{ object.user | default:'Неизвестно' }}
+            </p>
             <img src="{% mediapath object.preview %}" class="img-thumbnail" alt="...">
           </div>
+          {% if user.is_authenticated %}
+          <div class="card-footer py-3">
+            <a href="{% url 'catalog:edit_product' object.pk %}">Редактировать</a> |
+            <a href="{% url 'catalog:delete_product' object.pk %}">Удалить</a>
+          </div>
+          {% endif %}
         </div>
       </div>
     </div>
